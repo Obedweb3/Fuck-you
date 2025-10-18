@@ -95,6 +95,27 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url })
         });
+        async function downloadTikTokVideo(tiktokUrl) {
+  const apiEndpoint = 'https://existence-apis.vercel.app/api/tiktok/download?url=' + encodeURIComponent(tiktokUrl);
+
+  try {
+    const response = await fetch(apiEndpoint);
+    const data = await response.json();
+
+    if (data && data.video) {
+      console.log('Video download URL:', data.video);
+      // You could also trigger a download or embed the video
+    } else {
+      console.error('No video found in response:', data);
+    }
+  } catch (error) {
+    console.error('Error fetching TikTok video:', error);
+  }
+}
+
+// Example usage
+downloadTikTokVideo('https://www.tiktok.com/@username/video/1234567890');
+    
 
         const data = await response.json();
 
@@ -115,3 +136,24 @@
   </script>
 </body>
 </html>
+async function downloadTikTokVideo(tiktokUrl) {
+  const apiEndpoint = 'https://existence-apis.vercel.app/api/tiktok/download?url=' + encodeURIComponent(tiktokUrl);
+
+  try {
+    const response = await fetch(apiEndpoint);
+    const data = await response.json();
+
+    if (data && data.video) {
+      console.log('Video download URL:', data.video);
+      // You could also trigger a download or embed the video
+    } else {
+      console.error('No video found in response:', data);
+    }
+  } catch (error) {
+    console.error('Error fetching TikTok video:', error);
+  }
+}
+
+// Example usage
+downloadTikTokVideo('https://www.tiktok.com/@username/video/1234567890');
+
